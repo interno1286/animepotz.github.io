@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TC5V5CZHDQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TC5V5CZHDQ');
+    </script>
+
+
+    <meta charset="utf-8">
+    <title>AnimePot</title>
+    <meta property="og:site_name" content="AniLibria iPad">
+    <meta property="og:type" content="Website">
+    <meta property="og:title" content="AniLibria - так звучит аниме!">
+    <meta property="og:description" content="Смотреть аниме онлайн в любимой озучке.">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="icon" id="appIcon" type="image/png" href="img/Logo.png">
+    <link rel="stylesheet" type="text/css" href="css/auto.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="manifest" href="manifest.json">
+    <script type="text/javascript" src="js/playerjs.js" ></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/theme.js" ></script>
+    <script type="text/javascript" src="js/script.js" ></script>
+    <script src="https://use.fontawesome.com/b559c64803.js"></script>
+
+    <!-- iOS web app configuration -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AniLibria lite">
+
+    <!-- WEB web app icons -->
+    <link rel="icon" href="../img/icon/web/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="../img/icon/web/apple-touch-icon.png">
+    <!-- WEB splash screens -->
+    <!-- iPad -->
+    <link rel="apple-touch-startup-image" href="../img/icon/web/apple-touch-icon.png">
+  </head>
+  <body ontouchstart="">
+    <style media="screen"> .add_app{ display: block; position: fixed; z-index: 99999; top: 0; left: 0; width: 100%; height: 100%; min-width: 1000px; background-color: #21221d; } .add_app_center{ display: block; position: fixed; z-index: 99999; top: 0; left: 0; top: 50%; left: 50%; width: 300px; height: 400px; margin-top: -200px; margin-left: -150px; background: #2e2e2e; border-radius: var(--border-radius); } .add_app_center p{ color: #efefef; text-align: center; font-size: 18px; padding: 5px; margin: 10px 5px 5px 5px; font-weight: 400; border-radius: var(--border-radius); } .app_t{ color: #efefef; font-size: 18px; padding: 5px; margin: 5px; background: #21221d; font-weight: 400; display: inline-flex; border-radius: var(--border-radius); } .text_img{ width: 42px; height: 42px; padding: 10px; } .text_img img{ width: 40px; height: 40px; } .text_t{ padding: 5px 0px; } .text_t span{ font-size: 14px; float: left; font-weight: 300; } .add_app_close{ width: calc(100% - 10px); background: var(--card-background-3); color: #efefef; text-align: center; font-size: 18px; padding: 5px; margin: 10px 5px 5px 5px; font-weight: 400; border-radius: var(--border-radius); } .browser_text{font-size: 12px !important;margin: -10px 0 5px 55px !important;padding: 0 !important;font-weight: 300 !important;text-align: left !important;} </style> <div class="add_app" id="start_mess" style="display: none"> <div class="add_app_center"> <p>Настройка приожения</p> <div id="ios_app" style="display: none"> <p class="browser_text">*Актуально для Safary</p> <div class="app_t"> <div class="text_img"> <img src="img/icons/2_W.png" /> </div> <div class="text_t"> <span>Шаг 1.</span> <span>Нажмите кнопку «Общий доступ» на панели инструментов.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icons/1_W.png" /> </div> <div class="text_t"> <span>Шаг 2.</span> <span>Выберите «Добавить на главный экран» в меню.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icon/web/ios.png" /> </div> <div class="text_t"> <span>Шаг 3.</span> <span>Запустите LiteLibria на главном экране.</span> </div> </div> </div> <div id="android_app" style="display: none"> <p class="browser_text">*Актуально для Chrome</p> <div class="app_t"> <div class="text_img"> <img src="img/icons/17_W.png" /> </div> <div class="text_t"> <span>Шаг 1.</span> <span>Нажмите кнопку «Меню» на панели инструментов.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icons/18_W.png" /> </div> <div class="text_t"> <span>Шаг 2.</span> <span>Выберите «Добавить на гл. экран» в меню.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icon/web/Android.png" /> </div> <div class="text_t"> <span>Шаг 3.</span> <span>Запустите LiteLibria на главном экране.</span> </div> </div> </div> <p>ИЛИ</p> <button class="add_app_close" onclick="start_mess_close()">Открыть сайт</button> </div> </div>
+
+    <div id="block_notif"></div>
+    <div id="preloader"><div id="preloader_preload" onclick="preloader_none();"></div><p id="preloader_preload_but"><span id="loader_text">Идёт загрузка...</span><span id="loader1"></span><span id="loader2"></span></p></div>
+    <a class="back_to_top" title="Наверх">↑</a>
+    <header>
+      <div class="block_header">
+        <a href="index">Главная</a>
+        <a href="catalog">Каталог</a>
+        <a href="favorites">Избранное</a>
+        <form class="block_search" method="get" action="search">
+          <input type="text" name="q" class="search_box" placeholder="Поиск релиза...">
+          <button type="submit" class="search_button"><i class="fa fa-search" aria-hidden="true"></i></button>
+          <a type="submit" class="theme" id="b_theme1" onclick="theme1()" style="display: none;"><img src="img/sun.png" alt=""style="width: 20px;"></a>
+          <a type="submit" class="theme" id="b_theme2" onclick="theme2()" style="display: none;"><img src="img/moon.png" alt="" style="width: 20px;"></a>
+          <a type="submit" class="theme" id="b_auto" onclick="theme_auto()"><img src="img/auto.png" alt="" style="width: 20px;"></a>
+        </form>
+      </div>
+    </header>
+    <div class="article-block">
+      <center>
+        <div class="article-list block_header_small block_slider" id="article_block_small" style="overflow-x: scroll;white-space: nowrap;">
+          <div id="Monday">
+            <h1>Понедельник</h1>
+          </div>
+        </div>
+        <div class="article-list block_header_small block_slider" id="article_block_small" style="overflow-x: scroll;white-space: nowrap;">
+          <div id="Tuesday">
+            <h1>Вторник</h1>
+          </div>
+        </div>
+        <div class="article-list block_header_small block_slider" id="article_block_small" style="overflow-x: scroll;white-space: nowrap;">
+          <div id="Wednesday">
+            <h1>Среда</h1>
+          </div>
+        </div>
+        <div class="article-list block_header_small block_slider" id="article_block_small" style="overflow-x: scroll;white-space: nowrap;">
+          <div id="Thursday">
+            <h1>Четверг</h1>
+          </div>
+        </div>
+        <div class="article-list block_header_small block_slider" id="article_block_small" style="overflow-x: scroll;white-space: nowrap;">
+          <div id="Friday">
+            <h1>Пятница</h1>
+          </div>
+        </div>
+        <div class="article-list block_header_small block_slider" id="article_block_small" style="overflow-x: scroll;white-space: nowrap;">
+          <div id="Saturday">
+            <h1>Суббота</h1>
+          </div>
+        </div>
+        <div class="article-list block_header_small block_slider" id="article_block_small" style="overflow-x: scroll;white-space: nowrap;">
+          <div id="Sunday">
+            <h1>Воскресенье</h1>
+          </div>
+        </div>
+      </center>
+    </div>
+    <br /><br /><br /><br />
+
+  <script type="text/javascript">
+    load_api_cash();
+    var url_pop_0 = 'https://api.anilibria.tv/v2/getSchedule?days=0&filter=id';
+    var url_pop_1 = 'https://api.anilibria.tv/v2/getSchedule?days=1&filter=id';
+    var url_pop_2 = 'https://api.anilibria.tv/v2/getSchedule?days=2&filter=id';
+    var url_pop_3 = 'https://api.anilibria.tv/v2/getSchedule?days=3&filter=id';
+    var url_pop_4 = 'https://api.anilibria.tv/v2/getSchedule?days=4&filter=id';
+    var url_pop_5 = 'https://api.anilibria.tv/v2/getSchedule?days=5&filter=id';
+    var url_pop_6 = 'https://api.anilibria.tv/v2/getSchedule?days=6&filter=id';
+
+    // Получаем из кэша браузера все тайтлы
+    var arr_api = JSON.parse(localStorage.getItem('my_api_cash'));
+    if (arr_api) {
+      article_small_dey(url_pop_0, 'Monday');
+      article_small_dey(url_pop_1, 'Tuesday');
+      article_small_dey(url_pop_2, 'Wednesday');
+      article_small_dey(url_pop_3, 'Thursday');
+      article_small_dey(url_pop_4, 'Friday');
+      article_small_dey(url_pop_5, 'Saturday');
+      article_small_dey(url_pop_6, 'Sunday');
+    }else {
+      setTimeout(function() {
+        article_small_dey(url_pop_0, 'Monday');
+        article_small_dey(url_pop_1, 'Tuesday');
+        article_small_dey(url_pop_2, 'Wednesday');
+        article_small_dey(url_pop_3, 'Thursday');
+        article_small_dey(url_pop_4, 'Friday');
+        article_small_dey(url_pop_5, 'Saturday');
+        article_small_dey(url_pop_6, 'Sunday');
+      }, 10000);
+    }
+    preloader_none();
+    Scroll_to_top();
+  </script>
+
+  <a href="https://rozenrod.github.io/" style="font-size: 15px;font-weight: 300;text-decoration: none;background: var(--card-background-2);padding: 5px 10px;color: var(--card-text-color);float: right;margin-bottom: 20px;margin-right: 15px;border-radius: var(--border-radius);">Rozenrod 2022</a><br />
+</body>
+</html>

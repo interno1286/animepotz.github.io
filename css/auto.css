@@ -1,0 +1,58 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --shadow-l1: 0px 4px 8px rgba(0, 0, 0, 0.04),0px 0px 2px rgba(0, 0, 0, 0.06),0px 0px 1px rgba(0, 0, 0, 0.04);
+    --shadow-l2: 0px 10px 20px rgba(0, 0, 0, 0.04),0px 2px 6px rgba(0, 0, 0, 0.04),0px 0px 1px rgba(0, 0, 0, 0.04);
+    --shadow-l3: 0px 10px 20px rgba(0, 0, 0, 0.04),0px 2px 6px rgba(0, 0, 0, 0.04),0px 0px 1px rgba(0, 0, 0, 0.04);
+    --shadow-l4: 0px 24px 32px rgba(0, 0, 0, 0.09),0px 16px 24px rgba(0, 0, 0, 0.09),0px 4px 8px rgba(0, 0, 0, 0.09),0px 0px 1px rgba(0, 0, 0, 0.09);
+    --card-border-radius: 15px;
+    --border-radius: 10px;
+    --border-radius-2: 10px;
+    --section-separation: 40px;
+
+    --card-background: #f3f3f3;
+    --card-background-2: #e7e7e7;
+    --card-background-3: #3cd581;
+    --card-background-3: linear-gradient(140deg, #3cd581, #3cd581);
+    --card-background-4: #e7e7e7;
+    --card-background-5: #3cd581;
+    --card-text-color: #565656;
+    --card-text-color-2: #efefef;
+    --card-text-color-3: #404040 !important;
+  }
+  #preloader_preload{
+    background: url('../img/2.gif');
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shadow-l1: 0px 4px 8px rgba(0, 0, 0, 0.04),0px 0px 2px rgba(0, 0, 0, 0.06),0px 0px 1px rgba(0, 0, 0, 0.04);
+    --shadow-l2: 0px 10px 20px rgba(0, 0, 0, 0.04),0px 2px 6px rgba(0, 0, 0, 0.04),0px 0px 1px rgba(0, 0, 0, 0.04);
+    --shadow-l3: 0px 10px 20px rgba(0, 0, 0, 0.04),0px 2px 6px rgba(0, 0, 0, 0.04),0px 0px 1px rgba(0, 0, 0, 0.04);
+    --shadow-l4: 0px 24px 32px rgba(0, 0, 0, 0.09),0px 16px 24px rgba(0, 0, 0, 0.09),0px 4px 8px rgba(0, 0, 0, 0.09),0px 0px 1px rgba(0, 0, 0, 0.09);
+    --card-border-radius: 15px;
+    --border-radius: 10px;
+    --border-radius-2: 10px;
+    --section-separation: 40px;
+
+    --card-background: #21221d;
+    --card-background-2: #2e2e2e;
+    --card-background-3: #3cd581;
+    --card-background-3: linear-gradient(140deg, #3cd581, #3cd581);
+    --card-background-4: #272822;
+    --card-background-5: #3cd581;
+    --card-text-color: #efefef;
+    --card-text-color-2: #efefef;
+    --card-text-color-3: #d1d1d1 !important;
+    --image-filter: grayscale(20%);
+  }
+  #preloader_preload{
+    background: url('../img/1.gif');
+  }
+  /* .article {
+    filter: grayscale(20%);
+  }
+  img:not([src*=".svg"]) {
+    filter: var(--image-filter);
+  } */
+}

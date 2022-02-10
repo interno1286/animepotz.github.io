@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TC5V5CZHDQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TC5V5CZHDQ');
+    </script>
+
+
+    <meta charset="utf-8">
+    <title>AnimePot</title>
+    <meta property="og:site_name" content="AniLibria iPad">
+    <meta property="og:type" content="Website">
+    <meta property="og:title" content="AniLibria - так звучит аниме!">
+    <meta property="og:description" content="Смотреть аниме онлайн в любимой озучке.">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="icon" id="appIcon" type="image/png" href="img/Logo.png">
+    <link rel="stylesheet" type="text/css" href="css/auto.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="manifest" href="manifest.json">
+    <script type="text/javascript" src="js/playerjs.js" ></script>
+    <script src="https://use.fontawesome.com/b559c64803.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/theme.js" ></script>
+    <script type="text/javascript" src="js/script.js" ></script>
+
+    <!-- iOS web app configuration -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AniLibria lite">
+
+    <!-- WEB web app icons -->
+    <link rel="icon" href="../img/icon/web/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="../img/icon/web/apple-touch-icon.png">
+    <!-- WEB splash screens -->
+    <!-- iPad -->
+    <link rel="apple-touch-startup-image" href="../img/icon/web/apple-touch-icon.png">
+  </head>
+  <body ontouchstart="">
+    <style media="screen"> .add_app{ display: block; position: fixed; z-index: 99999; top: 0; left: 0; width: 100%; height: 100%; min-width: 1000px; background-color: #21221d; } .add_app_center{ display: block; position: fixed; z-index: 99999; top: 0; left: 0; top: 50%; left: 50%; width: 300px; height: 400px; margin-top: -200px; margin-left: -150px; background: #2e2e2e; border-radius: var(--border-radius); } .add_app_center p{ color: #efefef; text-align: center; font-size: 18px; padding: 5px; margin: 10px 5px 5px 5px; font-weight: 400; border-radius: var(--border-radius); } .app_t{ color: #efefef; font-size: 18px; padding: 5px; margin: 5px; background: #21221d; font-weight: 400; display: inline-flex; border-radius: var(--border-radius); } .text_img{ width: 42px; height: 42px; padding: 10px; } .text_img img{ width: 40px; height: 40px; } .text_t{ padding: 5px 0px; } .text_t span{ font-size: 14px; float: left; font-weight: 300; } .add_app_close{ width: calc(100% - 10px); background: var(--card-background-3); color: #efefef; text-align: center; font-size: 18px; padding: 5px; margin: 10px 5px 5px 5px; font-weight: 400; border-radius: var(--border-radius); } .browser_text{font-size: 12px !important;margin: -10px 0 5px 55px !important;padding: 0 !important;font-weight: 300 !important;text-align: left !important;} </style> <div class="add_app" id="start_mess" style="display: none"> <div class="add_app_center"> <p>Настройка приожения</p> <div id="ios_app" style="display: none"> <p class="browser_text">*Актуально для Safary</p> <div class="app_t"> <div class="text_img"> <img src="img/icons/2_W.png" /> </div> <div class="text_t"> <span>Шаг 1.</span> <span>Нажмите кнопку «Общий доступ» на панели инструментов.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icons/1_W.png" /> </div> <div class="text_t"> <span>Шаг 2.</span> <span>Выберите «Добавить на главный экран» в меню.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icon/web/ios.png" /> </div> <div class="text_t"> <span>Шаг 3.</span> <span>Запустите LiteLibria на главном экране.</span> </div> </div> </div> <div id="android_app" style="display: none"> <p class="browser_text">*Актуально для Chrome</p> <div class="app_t"> <div class="text_img"> <img src="img/icons/17_W.png" /> </div> <div class="text_t"> <span>Шаг 1.</span> <span>Нажмите кнопку «Меню» на панели инструментов.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icons/18_W.png" /> </div> <div class="text_t"> <span>Шаг 2.</span> <span>Выберите «Добавить на гл. экран» в меню.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icon/web/Android.png" /> </div> <div class="text_t"> <span>Шаг 3.</span> <span>Запустите LiteLibria на главном экране.</span> </div> </div> </div> <p>ИЛИ</p> <button class="add_app_close" onclick="start_mess_close()">Открыть сайт</button> </div> </div>
+
+    <div id="block_notif"></div>
+    <div id="preloader"><div id="preloader_preload" onclick="preloader_none();"></div><p id="preloader_preload_but"><span id="loader_text">Идёт загрузка...</span><span id="loader1"></span><span id="loader2"></span></p></div>
+    <a class="back_to_top" title="Наверх">↑</a>
+    <header>
+      <div class="block_header">
+        <a href="index">Главная</a>
+        <a href="catalog">Каталог</a>
+        <a href="favorites">Избранное</a>
+        <form class="block_search" method="get" action="search">
+          <input type="text" name="q" class="search_box" placeholder="Поиск релиза...">
+          <button type="submit" class="search_button"><i class="fa fa-search" aria-hidden="true"></i></button>
+          <a type="submit" class="theme" id="b_theme1" onclick="theme1()" style="display: none;"><img src="img/sun.png" alt=""style="width: 20px;"></a>
+          <a type="submit" class="theme" id="b_theme2" onclick="theme2()" style="display: none;"><img src="img/moon.png" alt="" style="width: 20px;"></a>
+          <a type="submit" class="theme" id="b_auto" onclick="theme_auto()"><img src="img/auto.png" alt="" style="width: 20px;"></a>
+        </form>
+      </div>
+    </header>
+    <center>
+    <!-- <div class="article-block">
+      <div class="article-list block_header_small small_bac">
+        <a href="schedule" class="block_header_small_a">Расписание</a>
+        <a href="release?random=1" class="block_header_small_a">Случайный релиз</a>
+        <a href="myHistory" class="block_header_small_a">Истрория просмотров</a>
+      </div>
+    </div> -->
+    <div class="block_header_small">
+      <h1 style="font-weight: 500;text-align: left;color: var(--card-text-color);padding: 0px 0px 10px 10px;font-size: 24px;">История просмотров</h1>
+      <div id="history_payer_release">
+         <!-- <h3>История просмотров</h3> -->
+         <button onclick='download_his("ani_his.rozenrod", dynamic_text_his())' class="release-href release-href_hov" style="padding: 4px 8px;"><i class="fa fa-download" aria-hidden="true"></i> Скачать историю</button>
+         <style>
+           input[type="file"] {
+             display: none;
+           }
+           .custom-file-upload {
+             background:  var(--card-background-3);
+             display: inline-block;
+             padding: 4px 8px;
+             cursor: pointer;
+             font-size: 16px;
+             font-weight: 300;
+             color: var(--card-text-color-2);
+             border-radius: var(--border-radius);
+             transition: .3s ease;
+             margin-top: 5px;
+           }
+           .custom-file-upload i{
+             color: var(--card-text-color-2);
+           }
+         </style>
+         <label for="file-upload" class="custom-file-upload">
+           <i class="fa fa-upload" aria-hidden="true"></i>  Загрузить историю
+         </label>
+         <input id="file-upload" type="file" onchange="update_his(this)" accept=".rozenrod"/>
+      </div>
+    </div>
+  </center>
+  <br /><br /><br /><br />
+
+  <script>
+    function update_his(input) {
+      let file = input.files[0];
+      let reader = new FileReader();
+      reader.readAsText(file);
+      reader.onload = function() {
+        var readJson = reader.result;
+        // var readJson_edit = readJson.slice(0, -4);
+        let str_playlist = JSON.parse('['+readJson+']');
+        for(var i = 0; i < str_playlist.length; i++) {
+          localStorage.setItem(str_playlist[i]["key"], str_playlist[i]["Item"]);
+        }
+        var container_his = document.getElementById("history_payer_release");
+        var elements_his = container_his.getElementsByClassName("article_his");
+        while (elements_his[0]) {
+            elements_his[0].parentNode.removeChild(elements_his[0]);
+        }
+        load_his();
+      };
+      reader.onerror = function() {
+        console.log(reader.error);
+      };
+     }
+
+    function dynamic_text_his() {
+      let keys2 = Object.keys(localStorage);
+      var json = '';
+      for(let key2 of keys2) {
+        var pljsplayfrom = key2.substr(0, 12);
+        if (pljsplayfrom == "pljsplayfrom") {
+          json += '{"key":"'+key2+'", "Item":"'+localStorage.getItem(key2)+'"}, '+'\r\n';
+          console.log(key2);
+        }
+      }
+      var json_edit = json.slice(0, -4);
+      return json_edit;
+    }
+
+    function download_his(name, contents, mime_type) {
+        mime_type = mime_type || "text/plain";
+
+        var blob = new Blob([contents], {type: mime_type});
+
+        var dlink = document.createElement('a');
+        const data_file = Date.now();
+        dlink.download = data_file+'_'+name;
+        dlink.href = window.URL.createObjectURL(blob);
+        dlink.onclick = function(e) {
+            // revokeObjectURL needs a delay to work properly
+            var that = this;
+            setTimeout(function() {
+                window.URL.revokeObjectURL(that.href);
+            }, 1500);
+        };
+
+        dlink.click();
+        dlink.remove();
+    }
+  </script>
+  <script>
+    load_his();
+    function load_his() {
+      let keys = Object.keys(localStorage);
+      for(let key of keys) {
+        var i;
+        i+1;
+        var paramsString = document.location.search;
+        var searchParams = new URLSearchParams(paramsString);
+
+        var namesList_payer_release_1 = localStorage.getItem(key).replace("}", "-").replace("–", "-");;
+        var namesList_payer_release = namesList_payer_release_1.replace("–", "-");
+        var List_payer_release = namesList_payer_release.split(/\s*-\s*/);
+        var id_payer_release_text = List_payer_release[2] + 'text';
+        var id_payer_release = key.substr(33); // удаление 33 символов из pljsplayfrom_LiteLibria.github.io
+        var pljsplayfrom = key.substr(0, 12);
+        var serie_payer_release = Number(List_payer_release[1])+1;
+        var minutes_payer_release = (List_payer_release[3] / 60).toFixed(2).replace(".", ":");
+        if (List_payer_release.length == 6) {
+          var milliseconds_payer_release = Number(List_payer_release[5]);
+        } else {
+          var milliseconds_payer_release = Number(List_payer_release[7]);
+        }
+        var dateObject_payer_release = new Date(milliseconds_payer_release);
+        var date_payer_release = dateObject_payer_release.toLocaleString()
+        var url_data = ''
+
+        if (pljsplayfrom == "pljsplayfrom") {
+          // console.log(List_payer_release);
+
+
+          var url = 'https://api.anilibria.tv/v2/getTitle?id='+id_payer_release+'&filter=id,posters.small,names';
+
+          var div = document.createElement('div');
+          // div.setAttribute('href', "release?id="+id_payer_release);
+          document.getElementById('history_payer_release').appendChild(div);
+          div.className = 'article_his';
+          div.id = 'article_history'+id_payer_release;
+          div.innerHTML =
+            `<div class="article_history">
+              <img id="img${id_payer_release}" src="https://www.anilibria.tv">
+              <div class="aarticle_history_text">
+                <p style="font-size: 16px;" id="names${id_payer_release}"></p>
+                <p> Серия ${serie_payer_release} <span style="margin-left:5px;">Минута</span> ${minutes_payer_release}</p>
+                <p> Дата ${date_payer_release}</p>
+                <a class="open_history" href="release?id=${id_payer_release}">Открыть</a>
+                <p class="del_history" onclick="del_his('${key}', '${id_payer_release}')">Удалить</p>
+              </div>
+            </div>`;
+
+          var page_content;
+          $.get(url, function(data){
+              page_content = data;
+              document.getElementById("img"+data["id"]).src = "https://www.anilibria.tv"+data["posters"]["small"]["url"];
+              document.getElementById("names"+data["id"]).innerHTML = data["names"]["ru"];
+          });
+        }
+      }
+    }
+    function del_his(key, id) {
+      localStorage.removeItem(key);
+      document.getElementById('article_history'+id).setAttribute("style", "display:none;");
+    }
+  </script>
+
+  <script>preloader_none();Scroll_to_top();</script>
+
+  <a href="https://rozenrod.github.io/" style="font-size: 15px;font-weight: 300;text-decoration: none;background: var(--card-background-2);padding: 5px 10px;color: var(--card-text-color);float: right;margin-bottom: 20px;margin-right: 15px;border-radius: var(--border-radius);">Rozenrod 2022</a><br />
+</body>
+</html>

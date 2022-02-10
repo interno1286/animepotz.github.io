@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TC5V5CZHDQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TC5V5CZHDQ');
+    </script>
+
+
+    <meta charset="utf-8">
+    <title>AnimePot</title>
+    <meta property="og:site_name" content="AniLibria iPad">
+    <meta property="og:type" content="Website">
+    <meta property="og:title" content="AniLibria - так звучит аниме!">
+    <meta property="og:description" content="Смотреть аниме онлайн в любимой озучке.">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="icon" id="appIcon" type="image/png" href="img/Logo.png">
+    <link rel="manifest" href="manifest.json">
+    <script type="text/javascript" src="js/playerjs.js" ></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/theme.js" ></script>
+    <script type="text/javascript" src="js/script.js" ></script>
+    <script src="https://use.fontawesome.com/b559c64803.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/auto.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <!-- iOS web app configuration -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AniLibria lite">
+
+    <!-- WEB web app icons -->
+    <link rel="icon" href="../img/icon/web/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="../img/icon/web/apple-touch-icon.png">
+    <!-- WEB splash screens -->
+    <!-- iPad -->
+    <link rel="apple-touch-startup-image" href="../img/icon/web/apple-touch-icon.png">
+  </head>
+  <body ontouchstart="">
+    <style media="screen"> .add_app{ display: block; position: fixed; z-index: 99999; top: 0; left: 0; width: 100%; height: 100%; min-width: 1000px; background-color: #21221d; } .add_app_center{ display: block; position: fixed; z-index: 99999; top: 0; left: 0; top: 50%; left: 50%; width: 300px; height: 400px; margin-top: -200px; margin-left: -150px; background: #2e2e2e; border-radius: var(--border-radius); } .add_app_center p{ color: #efefef; text-align: center; font-size: 18px; padding: 5px; margin: 10px 5px 5px 5px; font-weight: 400; border-radius: var(--border-radius); } .app_t{ color: #efefef; font-size: 18px; padding: 5px; margin: 5px; background: #21221d; font-weight: 400; display: inline-flex; border-radius: var(--border-radius); } .text_img{ width: 42px; height: 42px; padding: 10px; } .text_img img{ width: 40px; height: 40px; } .text_t{ padding: 5px 0px; } .text_t span{ font-size: 14px; float: left; font-weight: 300; } .add_app_close{ width: calc(100% - 10px); background: var(--card-background-3); color: #efefef; text-align: center; font-size: 18px; padding: 5px; margin: 10px 5px 5px 5px; font-weight: 400; border-radius: var(--border-radius); } .browser_text{font-size: 12px !important;margin: -10px 0 5px 55px !important;padding: 0 !important;font-weight: 300 !important;text-align: left !important;} </style> <div class="add_app" id="start_mess" style="display: none"> <div class="add_app_center"> <p>Настройка приожения</p> <div id="ios_app" style="display: none"> <p class="browser_text">*Актуально для Safary</p> <div class="app_t"> <div class="text_img"> <img src="img/icons/2_W.png" /> </div> <div class="text_t"> <span>Шаг 1.</span> <span>Нажмите кнопку «Общий доступ» на панели инструментов.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icons/1_W.png" /> </div> <div class="text_t"> <span>Шаг 2.</span> <span>Выберите «Добавить на главный экран» в меню.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icon/web/ios.png" /> </div> <div class="text_t"> <span>Шаг 3.</span> <span>Запустите LiteLibria на главном экране.</span> </div> </div> </div> <div id="android_app" style="display: none"> <p class="browser_text">*Актуально для Chrome</p> <div class="app_t"> <div class="text_img"> <img src="img/icons/17_W.png" /> </div> <div class="text_t"> <span>Шаг 1.</span> <span>Нажмите кнопку «Меню» на панели инструментов.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icons/18_W.png" /> </div> <div class="text_t"> <span>Шаг 2.</span> <span>Выберите «Добавить на гл. экран» в меню.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icon/web/Android.png" /> </div> <div class="text_t"> <span>Шаг 3.</span> <span>Запустите LiteLibria на главном экране.</span> </div> </div> </div> <p>ИЛИ</p> <button class="add_app_close" onclick="start_mess_close()">Открыть сайт</button> </div> </div>
+
+    <div id="block_notif"></div>
+    <div id="preloader"><div id="preloader_preload" onclick="preloader_none();"></div><p id="preloader_preload_but"><span id="loader_text">Идёт загрузка...</span><span id="loader1"></span><span id="loader2"></span></p></div>
+    <header>
+      <div class="block_header">
+        <a href="index">Главная</a>
+        <a href="catalog">Каталог</a>
+        <a href="favorites">Избранное</a>
+        <form class="block_search" method="get" action="search">
+          <input type="text" name="q" class="search_box" placeholder="Поиск релиза...">
+          <button type="submit" class="search_button"><i class="fa fa-search" aria-hidden="true"></i></button>
+          <a type="submit" class="theme" id="b_theme1" onclick="theme1()" style="display: none;"><img src="img/sun.png" alt=""style="width: 20px;"></a>
+          <a type="submit" class="theme" id="b_theme2" onclick="theme2()" style="display: none;"><img src="img/moon.png" alt="" style="width: 20px;"></a>
+          <a type="submit" class="theme" id="b_auto" onclick="theme_auto()"><img src="img/auto.png" alt="" style="width: 20px;"></a>
+        </form>
+      </div>
+    </header>
+
+
+    <center>
+      <div class="release-block block_header_small">
+        <div id="release_block"></div>
+        <p><a href="https://www.anilibria.tv/pages/donate.php" style="display: table;font-size: 15px;font-weight: 300;color: var(--card-text-color);text-decoration: none;text-align: center;transition: .3s ease;width: 80%;margin-top: 10px;border-radius: var(--border-radius-2);max-width: calc(800px - 25px);padding: 12px;background: var(--card-background);">Поддержать проект</a></p>
+        <div class="release-player">
+          <div id="player"></div>
+          <div class="but_Hotkeys">
+            <p><span>Клавиша F</span><span>Полноэкранный режим видео</span></p>
+            <p><span>Клавиша M</span><span>Включение / выключение звука</span></p>
+            <p><span>Пробел</span><span>Переключение пуск / пауза</span></p>
+            <p><span>Скролл на полном экране</span><span>Изменяет громкость</span></p>
+            <p><span>Стрелки ← и →</span><span>Перемотка</span></p>
+            <p><span>Стрелки ↑ и ↓</span><span>Изменяет громкость</span></p>
+          </div>
+        </div>
+        <details id="servers" style="text-align: center;">
+           <summary>Если серия не грузит, то попробуйте поменять сервер.</summary>
+        </details>
+      </div>
+    </center>
+    <br /><br /><br /><br />
+
+  <script type="text/javascript">
+    var my_server = localStorage.getItem('my_server');
+
+    var url = "https://api.anilibria.tv/v2/getCachingNodes";
+    fetch(url)
+    .then(function (response) {
+      if (response.status !== 200) {
+        return Promise.reject(new Error(response.statusText))
+      }
+      return Promise.resolve(response)
+    })
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      for (var i = 0; i < data.length; i++) {
+
+        if (!my_server) {
+          var style_server = "background: var(--card-background-2);color: var(--card-text-color)!important;cursor:pointer;";
+          var title_server = "Сменить сервер";
+        } else if (my_server == 'auto') {
+          var style_server = "background: var(--card-background-2);color: var(--card-text-color)!important;cursor:pointer;";
+          var title_server = "Сменить сервер";
+        }else{
+          if (my_server == data[i]) {
+            var style_server = "color: var(--card-text-color-2)!important;background: var(--card-background-3)!important;cursor:pointer;";
+            var title_server = "Выбранный сервер";
+          } else {
+            var style_server = "background: var(--card-background-2);color: var(--card-text-color)!important;cursor:pointer;";
+            var title_server = "Сменить сервер";
+          }
+        }
+
+        var div = document.createElement('span');
+        document.getElementById('servers').appendChild(div);
+        div.innerHTML += `<a title="${title_server}" onclick="release_server('${data[i]}')" class="release-href release-href_hov" style="margin: 5px !important;width: 100px;${style_server}">Сервер ${data[i]}</a>`;
+      }
+      var div = document.createElement('span');
+      document.getElementById('servers').appendChild(div);
+      if (!my_server) {
+        div.innerHTML += `<a title="Выбранный сервер" onclick="release_server(\'auto\')" class="release-href release-href_hov" style="cursor:pointer;margin: 5px !important;width: 100px;color: var(--card-text-color-2)!important;background: var(--card-background-3)!important;">Сервер авто выбор</a>`;
+      } else if (my_server == 'auto') {
+        div.innerHTML += `<a title="Выбранный сервер" onclick="release_server(\'auto\')" class="release-href release-href_hov" style="cursor:pointer;margin: 5px !important;width: 100px;color: var(--card-text-color-2)!important;background: var(--card-background-3)!important;">Сервер авто выбор</a>`;
+      } else {
+        div.innerHTML += `<a title="Сменить сервер" onclick="release_server(\'auto\')" class="release-href release-href_hov" style="cursor:pointer;margin: 5px !important;width: 100px;background: var(--card-background-2);color: var(--card-text-color)!important;">Сервер авто выбор</a>`;
+      }
+    })
+  </script>
+  <script type="text/javascript">
+    var id_t,
+        dataPlayer,
+        dataPlayerSerie,
+        cookie = localStorage.getItem('PHPSESSID');
+
+    function delFavorite(id_t) {
+      console.log(id_t);
+      var url = "https://api.anilibria.tv/v2/delFavorite?session="+cookie+"&title_id="+id_t;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("DELETE", url, true);
+      xhr.onload = function () {
+          var users = JSON.parse(xhr.responseText);
+          if (xhr.readyState == 4 && xhr.status == "200") {
+              console.table(users);
+          } else {
+              console.error(users);
+          }
+      }
+      xhr.send();
+      document.getElementById('delFavorite_rel').setAttribute("style", "display:none;");
+      document.getElementById('addFavorite_rel').setAttribute("style", "background:var(--card-background); color:var(--card-text-color)!important;");
+    }
+    function addFavorite(id_t) {
+      console.log(id_t);
+      var url = "https://api.anilibria.tv/v2/addFavorite?session="+cookie+"&title_id="+id_t;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("PUT", url, true);
+      xhr.onload = function () {
+        var users = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            console.table(users);
+        } else {
+            console.error(users);
+        }
+      }
+      xhr.send();
+      document.getElementById('delFavorite_rel').setAttribute("style", "");
+      document.getElementById('addFavorite_rel').setAttribute("style", "display:none;");
+    }
+
+    load_relise();
+
+
+    function load_relise() {
+      var url_relise = '';
+      var paramsString = document.location.search;
+      var searchParams = new URLSearchParams(paramsString);
+      searchParams.get("id");
+      if (searchParams.get("random") == '1') {
+        url = 'https://api.anilibria.tv/v2/getRandomTitle?filter=id';
+        fetch(url)
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (data) {
+          window.location.href = 'https://litelibria.github.io/release?id='+data["id"];
+        })
+
+      } else if (searchParams.get("name_t")) {
+        url = 'https://api.anilibria.tv/v2/getTitle?code='+searchParams.get("name_t")+'&filter=id';
+        fetch(url)
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (data) {
+          window.location.href = 'https://litelibria.github.io/release?id='+data["id"];
+        })
+      } else if (searchParams.get("id")) {
+        var arr_api = JSON.parse(localStorage.getItem('my_api_cash'));
+
+        if (!arr_api) {
+          url = 'https://api.anilibria.tv/v2/getTitle?id='+searchParams.get("id")+'&description_type=html&remove=posters.small,posters.original,torrents';
+        } else {
+          url = 'https://api.anilibria.tv/v2/getTitle?id='+searchParams.get("id")+'&filter=id,player';
+        }
+      } else {
+          document.getElementById('release_block').setAttribute("style", "display:none;");
+      }
+      fetch(url)
+      .then(function (response) {
+        if (response.status !== 200) {
+          return Promise.reject(new Error(response.statusText))
+        }
+        return Promise.resolve(response)
+      })
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (data) {
+        console.log(data);
+        var url = document.location;
+        var paramsString = document.location.search;
+        var searchParams = new URLSearchParams(paramsString);
+
+        id_t = data["id"];
+
+        // Получаем из кэша браузера все тайтлы
+        var arr_api = JSON.parse(localStorage.getItem('my_api_cash'));
+
+        if (arr_api) {
+          var cookie_genres = localStorage.getItem('my_genres');
+          if (cookie_genres) {
+            genres = cookie_genres.split(/\s*,\s*/);
+          } else {
+            localStorage.setItem('my_genres', '');
+            cookie_genres = localStorage.getItem('my_genres');
+            genres = cookie_genres.split(/\s*,\s*/);
+          }
+
+          // Получаем из кэша браузера все тайтлы
+          arr_api = JSON.parse(localStorage.getItem('my_api_cash'));
+
+          // Удаляем из результата жанры которые нельзя отображать
+          arr = arr_api.filter(function(item) {
+          for (var key in genres) {
+              if (item.genres.includes(genres[key]))
+                return false;
+            }
+            return true;
+          });
+
+          var data_arr = arr.filter(function(item) {if (item.id == id_t){return true}});
+
+          release_html(id_t, data_arr[0]);
+          preloader_none();
+        } else {
+          release_html(id_t, data);
+          preloader_none();
+        }
+
+        dataPlayer = data["player"];
+        dataPlayerSerie = data["player"]["series"]["last"];
+        playerPlaylist(id_t, dataPlayer, dataPlayerSerie);
+        if (cookie) {
+          load_relise_Fav(id_t);
+        }
+      })
+      .catch(function (error) {
+        console.log('error', error)
+      })
+    }
+
+    function release_html(id_t, data) {
+      var genres = '';
+      var div = document.createElement('div');
+      document.getElementById('release_block').appendChild(div);
+      div.className = 'release-list';
+      div.setAttribute("style", "");
+      if (data["genres"][5] != undefined) {
+        genres = '<a href="season?genres='+data["genres"][0]+'" style="text-decoration: none;">'+data["genres"][0]+'</a> | <a href="season?genres='+data["genres"][1]+'" style="text-decoration: none;">'+data["genres"][1]+'</a> | <a href="season?genres='+data["genres"][2]+'" style="text-decoration: none;">'+data["genres"][2]+'</a> | <a href="season?genres='+data["genres"][3]+'" style="text-decoration: none;">'+data["genres"][3]+'</a> | <a href="season?genres='+data["genres"][4]+'" style="text-decoration: none;">'+data["genres"][4]+'</a> | <a href="season?genres='+data["genres"][5]+'" style="text-decoration: none;">'+data["genres"][5]+'</a>';
+      } else if(data["genres"][4] != undefined) {
+        genres = '<a href="season?genres='+data["genres"][0]+'" style="text-decoration: none;">'+data["genres"][0]+'</a> | <a href="season?genres='+data["genres"][1]+'" style="text-decoration: none;">'+data["genres"][1]+'</a> | <a href="season?genres='+data["genres"][2]+'" style="text-decoration: none;">'+data["genres"][2]+'</a> | <a href="season?genres='+data["genres"][3]+'" style="text-decoration: none;">'+data["genres"][3]+'</a> | <a href="season?genres='+data["genres"][4]+'" style="text-decoration: none;">'+data["genres"][4]+'</a>';
+      } else if(data["genres"][3] != undefined) {
+        genres = '<a href="season?genres='+data["genres"][0]+'" style="text-decoration: none;">'+data["genres"][0]+'</a> | <a href="season?genres='+data["genres"][1]+'" style="text-decoration: none;">'+data["genres"][1]+'</a> | <a href="season?genres='+data["genres"][2]+'" style="text-decoration: none;">'+data["genres"][2]+'</a> | <a href="season?genres='+data["genres"][3]+'" style="text-decoration: none;">'+data["genres"][3]+'</a>';
+      } else if(data["genres"][2] != undefined) {
+        genres = '<a href="season?genres='+data["genres"][0]+'" style="text-decoration: none;">'+data["genres"][0]+'</a> | <a href="season?genres='+data["genres"][1]+'" style="text-decoration: none;">'+data["genres"][1]+'</a> | <a href="season?genres='+data["genres"][2]+'" style="text-decoration: none;">'+data["genres"][2]+'</a>';
+      } else if(data["genres"][1] != undefined) {
+        genres = '<a href="season?genres='+data["genres"][0]+'" style="text-decoration: none;">'+data["genres"][0]+'</a> | <a href="season?genres='+data["genres"][1]+'" style="text-decoration: none;">'+data["genres"][1]+'</a>';
+      } else if(data["genres"][0] != undefined) {
+        genres = '<a href="season?genres='+data["genres"][0]+'" style="text-decoration: none;">'+data["genres"][0]+'</a>';
+      }
+      if (data["status"]["code"] == '1' || data["status"]["code"] == '4') {
+        var week_day = data["season"]["week_day"];
+        var week_day_text,
+            week_day_text_html;
+        if (week_day == '0') {week_day_text = 'Пн';}
+        if (week_day == '1') {week_day_text = 'Вт';}
+        if (week_day == '2') {week_day_text = 'Ср';}
+        if (week_day == '3') {week_day_text = 'Чт';}
+        if (week_day == '4') {week_day_text = 'Пт';}
+        if (week_day == '5') {week_day_text = 'Сб';}
+        if (week_day == '6') {week_day_text = 'Вс';}
+
+        week_day_text_html = '<a style="border: 0;"  class="release-href release-href_hov" href="schedule" target="_self">'+week_day_text+'</a>';
+      } else {
+        week_day_text_html = ''
+      }
+
+      var voice_html,
+          timing_html,
+          translator_html,
+          editing_html,
+          decor_html;
+
+      if (data["team"]["voice"] != '') {
+        var voice = data["team"]["voice"];
+        for(let i = 0; voice[i]; i++) {
+          if (i == (voice.length-1)) {
+            var coma = '';
+          } else {
+            var coma = ', ';
+          }
+          voice_html += '<a href="season?voice='+voice[i]+'">'+voice[i]+'</a>'+coma;
+        }
+      } else {
+        var voice_html = 'undefined'
+      }
+      if (data["team"]["timing"] != '') {
+        var timing = data["team"]["timing"];
+        for(let i = 0; timing[i]; i++) {
+          if (i == (timing.length-1)) {
+            var coma = '';
+          } else {
+            var coma = ', ';
+          }
+          timing_html += '<a href="season?timing='+timing[i]+'">'+timing[i]+'</a>'+coma;
+        }
+      } else {
+        var timing_html = 'undefined'
+      }
+      if (data["team"]["translator"] != '') {
+        var translator = data["team"]["translator"];
+        for(let i = 0; translator[i]; i++) {
+          if (i == (translator.length-1)) {
+            var coma = '';
+          } else {
+            var coma = ', ';
+          }
+          translator_html += '<a href="season?translator='+translator[i]+'">'+translator[i]+'</a>'+coma;
+        }
+      } else {
+        var translator_html = 'undefined'
+      }
+      if (data["team"]["editing"] != '') {
+        var editing = data["team"]["editing"];
+        for(let i = 0; editing[i]; i++) {
+          if (i == (editing.length-1)) {
+            var coma = '';
+          } else {
+            var coma = ', ';
+          }
+          editing_html += '<a href="season?editing='+editing[i]+'">'+editing[i]+'</a>'+coma;
+        }
+      } else {
+        var editing_html = 'undefined'
+      }
+      if (data["team"]["decor"] != '') {
+        var decor = data["team"]["decor"];
+        for(let i = 0; decor[i]; i++) {
+          if (i == (decor.length-1)) {
+            var coma = '';
+          } else {
+            var coma = ', ';
+          }
+          decor_html += '<a href="season?decor='+decor[i]+'">'+decor[i]+'</a>'+coma;
+        }
+      } else {
+        var decor_html = 'undefined'
+      }
+      if (data["announce"] && data["status"]['code'] == 1){
+        var announce = data["announce"];
+      } else {
+        var announce = ''
+      }
+
+      div.innerHTML = `
+        <img src="https://www.anilibria.tv${data["posters"]["medium"]["url"]}" />
+        <div class="release-det">
+          <p class="release-name">${data["names"]["ru"]}</p>
+          <p class="release-description">${genres}</p>
+          <p class="release-description" style="margin-top: 10px;">
+            <a style="border:0;" class="release-href release-href_hov" href="season?year=${data["season"]["year"]}&code=${data["season"]["code"]}">${data["season"]["year"]} ${data["season"]["string"]}</a>
+            ${week_day_text_html}
+            <a style="border:0;" class="release-href" href="season?type=${data["type"]["code"]}" target="_self">${data["type"]["full_string"]}</a>
+          </p>
+          <div style="display: contents;">
+            <button type="submit" class="favor_button" name="delFavorite" id="delFavorite_rel" onclick="delFavorite(id_t)"style="display:none;">В избранном</button>
+            <button type="submit" class="favor_button" name="addFavorite" id="addFavorite_rel" onclick="addFavorite(id_t)"style="display:none;">Добавить в избранное</button>
+          </div>
+          <p class="release-description" style="padding: 10px 0;">
+            <a class="release-href" style="border:0;background:var(--card-text-color-3); color:var(--card-background-2)!important;">Смотрят ${data["in_favorites"]}</a>
+          </p>
+
+          <p class="release-description">${announce}</p><br />
+
+          <p class="release-description" id="release_description_text">${data["description"].substr(0, 270)}<span id="hidden3" style="display: contents;">...</span><span id="hidden1" style="display: none;color: var(--card-text-color-3);">${data["description"].substr(270)}</span></p></p>
+          <div id="hidden2" style="display: none;">
+            <br />
+            <p class="release-description">Статус: ${data["status"]["string"]}</p>
+            <p class="release-description">Озвучка: ${voice_html.substr(9)}</p>
+            <p class="release-description">Тайминг: ${timing_html.substr(9)}</p>
+            <p class="release-description">Перевод: ${translator_html.substr(9)}</p>
+            <p class="release-description">Редактура: ${editing_html.substr(9)}</p>
+            <p class="release-description">Декор: ${decor_html.substr(9)}</p>
+            <br />
+            <p class="release-description">Навзание EN: ${data["names"]["en"]}</p>
+          </div>
+          <p style="cursor:pointer;margin-top:10px; margin-bottom: 5px;"><a onclick="view('hidden1', 'hidden2', 'hidden3'); return false" style="color: var(--card-text-color-3);border-bottom: 1px solid var(--card-background-5);">Подробнее...</a></p>
+        </div>`;
+    }
+    function playerPlaylist(id_t, dataPlayer, dataPlayerSerie) {
+      var strPlayer = '';
+      var my_skips_opening = localStorage.getItem('my_skips_opening');
+      for (let i = 0; i < dataPlayerSerie; i++) {
+        var poster_preview
+        var i2 = i+1;
+
+        var remove = "";
+        if (dataPlayer["playlist"][i2]["skips"]["opening"][0] && dataPlayer["playlist"][i2]["skips"]["opening"][1]) {
+          if (my_skips_opening == '1') {
+            remove = '"remove":"'+dataPlayer["playlist"][i2]["skips"]["opening"][0]+'-'+dataPlayer["playlist"][i2]["skips"]["opening"][1]+'", ';
+          }
+        }
+
+        var url_relise_480 = "";
+        var url_relise_720 = "";
+        var url_relise_1080 = "";
+        if (dataPlayer["playlist"][i2]) {
+          if (dataPlayer["playlist"][i2]["hls"]["sd"]) {
+            url_relise_480 = "[480p]https://"+dataPlayer["host"]+dataPlayer["playlist"][i2]["hls"]["sd"];
+          }
+          if (dataPlayer["playlist"][i2]["hls"]["hd"]) {
+            url_relise_720 = "[720p]https://"+dataPlayer["host"]+dataPlayer["playlist"][i2]["hls"]["hd"];
+          }
+          if (dataPlayer["playlist"][i2]["hls"]["fhd"]) {
+            url_relise_1080 = ",[1080p]https://"+dataPlayer["host"]+dataPlayer["playlist"][i2]["hls"]["fhd"];
+          }
+          if (dataPlayer["playlist"][i2]["preview"]) {
+            poster_preview = "https://anilibria.tv/"+dataPlayer["playlist"][i2]["preview"];
+          } else {
+            poster_preview = "img/pleer.jpg";
+          }
+          var url_relise_comma = " ";
+          if (i2 != dataPlayerSerie) {
+            url_relise_comma = ", ";
+          }
+          var str_m_Player = '{"title":"Серия '+i2+'","poster":"'+poster_preview+'", '+remove+' "id": "'+id_t+'s'+i2+'", "file":"'+url_relise_480+', '+url_relise_720+' '+url_relise_1080+'"}'+url_relise_comma;
+          strPlayer += str_m_Player;
+        }
+      }
+      let str_playlist = JSON.parse('['+strPlayer+']');
+      var player = new Playerjs({
+        id:"player",
+        poster:"img/pleer.jpg",
+        file:"",
+        cuid: id_t
+      });
+      player.api("file", str_playlist);
+    }
+    function load_relise_Fav(id_t) {
+      var cookie = localStorage.getItem('PHPSESSID');
+      var url_ses="https://api.anilibria.tv/v2/getFavorites?session="+cookie+"&filter=id&limit=4000";
+      fetch(url_ses)
+      .then(function (response) {
+        return Promise.resolve(response)
+      })
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (data) {
+        for (let i = 0; data[i]; i++) {
+          if (id_t == data[i]["id"]) {
+            document.getElementById('delFavorite_rel').setAttribute("style", "");
+            document.getElementById('addFavorite_rel').setAttribute("style", "display:none;");
+             return;
+          }else {
+            document.getElementById('delFavorite_rel').setAttribute("style", "display:none;");
+            document.getElementById('addFavorite_rel').setAttribute("style", "background:var(--card-background); color:var(--card-text-color)!important;");
+          }
+        }
+      })
+    }
+    function view(n, n2, n3) {
+      style = document.getElementById(n).style;
+      style.display = (style.display == 'contents') ? 'none' : 'contents';
+      style2 = document.getElementById(n2).style;
+      style2.display = (style2.display == 'block') ? 'none' : 'block';
+      style3 = document.getElementById(n3).style;
+      style3.display = (style3.display == 'none') ? 'contents' : 'none';
+    }
+
+    function release_server(name) {
+      localStorage.setItem('my_server', name);
+      location.reload();
+    }
+    // setTimeout(function() {
+    //   var a = document.getElementById("release_description_text");
+    //   var b = a.getElementsByTagName("a");
+    //   var c = Array.from(b)
+    //   var d = c.map(i => {return i.href})
+    //
+    //   for (var i = 0; i < d.length; i++) {
+    //     var name_href_release = d[i].substr(33);
+    //     var name_release = name_href_release.substring(0, name_href_release.length - 5);
+    //     $('a[href="'+d[i]+'"]').attr('target', '_self');
+    //     $('a[href="'+d[i]+'"]').attr('href', 'release?name_t='+name_release);
+    //   }
+    // }, 2500);
+
+  </script>
+
+  <script type="text/javascript">
+    // preloader_none();
+    load_api_cash();
+  </script>
+
+  <a href="https://rozenrod.github.io/" style="font-size: 15px;font-weight: 300;text-decoration: none;background: var(--card-background-2);padding: 5px 10px;color: var(--card-text-color);float: right;margin-bottom: 20px;margin-right: 15px;border-radius: var(--border-radius);">Rozenrod 2022</a><br />
+</body>
+</html>

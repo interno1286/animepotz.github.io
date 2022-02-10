@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TC5V5CZHDQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TC5V5CZHDQ');
+    </script>
+
+
+    <meta charset="utf-8">
+    <title>AnimePot</title>
+    <meta property="og:site_name" content="AniLibria iPad">
+    <meta property="og:type" content="Website">
+    <meta property="og:title" content="AniLibria - так звучит аниме!">
+    <meta property="og:description" content="Смотреть аниме онлайн в любимой озучке.">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="icon" id="appIcon" type="image/png" href="img/Logo.png">
+    <link rel="stylesheet" type="text/css" href="css/auto.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="manifest" href="manifest.json">
+    <script type="text/javascript" src="js/playerjs.js" ></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/theme.js" ></script>
+    <script type="text/javascript" src="js/script.js" ></script>
+    <script src="https://use.fontawesome.com/b559c64803.js"></script>
+
+    <!-- iOS web app configuration -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AniLibria lite">
+
+    <!-- WEB web app icons -->
+    <link rel="icon" href="../img/icon/web/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="../img/icon/web/apple-touch-icon.png">
+    <!-- WEB splash screens -->
+    <!-- iPad -->
+    <link rel="apple-touch-startup-image" href="../img/icon/web/apple-touch-icon.png">
+  </head>
+  <body ontouchstart="">
+    <style media="screen"> .add_app{ display: block; position: fixed; z-index: 99999; top: 0; left: 0; width: 100%; height: 100%; min-width: 1000px; background-color: #21221d; } .add_app_center{ display: block; position: fixed; z-index: 99999; top: 0; left: 0; top: 50%; left: 50%; width: 300px; height: 400px; margin-top: -200px; margin-left: -150px; background: #2e2e2e; border-radius: var(--border-radius); } .add_app_center p{ color: #efefef; text-align: center; font-size: 18px; padding: 5px; margin: 10px 5px 5px 5px; font-weight: 400; border-radius: var(--border-radius); } .app_t{ color: #efefef; font-size: 18px; padding: 5px; margin: 5px; background: #21221d; font-weight: 400; display: inline-flex; border-radius: var(--border-radius); } .text_img{ width: 42px; height: 42px; padding: 10px; } .text_img img{ width: 40px; height: 40px; } .text_t{ padding: 5px 0px; } .text_t span{ font-size: 14px; float: left; font-weight: 300; } .add_app_close{ width: calc(100% - 10px); background: var(--card-background-3); color: #efefef; text-align: center; font-size: 18px; padding: 5px; margin: 10px 5px 5px 5px; font-weight: 400; border-radius: var(--border-radius); } .browser_text{font-size: 12px !important;margin: -10px 0 5px 55px !important;padding: 0 !important;font-weight: 300 !important;text-align: left !important;} </style> <div class="add_app" id="start_mess" style="display: none"> <div class="add_app_center"> <p>Настройка приожения</p> <div id="ios_app" style="display: none"> <p class="browser_text">*Актуально для Safary</p> <div class="app_t"> <div class="text_img"> <img src="img/icons/2_W.png" /> </div> <div class="text_t"> <span>Шаг 1.</span> <span>Нажмите кнопку «Общий доступ» на панели инструментов.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icons/1_W.png" /> </div> <div class="text_t"> <span>Шаг 2.</span> <span>Выберите «Добавить на главный экран» в меню.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icon/web/ios.png" /> </div> <div class="text_t"> <span>Шаг 3.</span> <span>Запустите LiteLibria на главном экране.</span> </div> </div> </div> <div id="android_app" style="display: none"> <p class="browser_text">*Актуально для Chrome</p> <div class="app_t"> <div class="text_img"> <img src="img/icons/17_W.png" /> </div> <div class="text_t"> <span>Шаг 1.</span> <span>Нажмите кнопку «Меню» на панели инструментов.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icons/18_W.png" /> </div> <div class="text_t"> <span>Шаг 2.</span> <span>Выберите «Добавить на гл. экран» в меню.</span> </div> </div> <div class="app_t"> <div class="text_img"> <img src="img/icon/web/Android.png" /> </div> <div class="text_t"> <span>Шаг 3.</span> <span>Запустите LiteLibria на главном экране.</span> </div> </div> </div> <p>ИЛИ</p> <button class="add_app_close" onclick="start_mess_close()">Открыть сайт</button> </div> </div>
+
+    <div id="block_notif"></div>
+    <div id="preloader"><div id="preloader_preload" onclick="preloader_none();"></div><p id="preloader_preload_but"><span id="loader_text">Идёт загрузка...</span><span id="loader1"></span><span id="loader2"></span></p></div>
+    <header>
+      <div class="block_header">
+        <a href="index">Главная</a>
+        <a href="catalog">Каталог</a>
+        <a href="favorites">Избранное</a>
+        <form class="block_search" method="get" action="search">
+          <input type="text" name="q" class="search_box" placeholder="Поиск релиза...">
+          <button type="submit" class="search_button"><i class="fa fa-search" aria-hidden="true"></i></button>
+          <a type="submit" class="theme" id="b_theme1" onclick="theme1()" style="display: none;"><img src="img/sun.png" alt=""style="width: 20px;"></a>
+          <a type="submit" class="theme" id="b_theme2" onclick="theme2()" style="display: none;"><img src="img/moon.png" alt="" style="width: 20px;"></a>
+          <a type="submit" class="theme" id="b_auto" onclick="theme_auto()"><img src="img/auto.png" alt="" style="width: 20px;"></a>
+        </form>
+      </div>
+    </header>
+    <center>
+    <div id="login_profile" style="display:none;">
+      <div class="profile-block block_header_small">
+        <div class="logo" id="my_profile_img"> </div>
+        <p class="text_login" id="my_login"></p>
+        <p class="text_profile" id="my_text"></p>
+        <a class="profile_button" id="profile_button" onclick="logout()">Выйти из аккаунта</a>
+        <!-- <a class="profile_button" id="profile_button" href="https://www.anilibria.tv/public/logout.php">Выйти из аккаунта</a> -->
+
+      </div>
+    </div>
+    <div id="logout_profile">
+      <div class="profile-block block_header_small">
+        <form method="post" name="form_login" class="login_block" id="form_login">
+          <p id="error_mes" style="display: none">Неверный логин или пароль!</p><br />
+          <label>Логин</label><input required type="text" name="mail" class="logins_box" style="margin-left: 23px;">
+          <label>Пароль</label><input required type="password" name="passwd" class="logins_box">
+          <input formmethod="post" type="submit"  class="login_button" id="submit" value="Вход">
+        </form>
+      </div>
+    </div>
+
+    <div class="block_header_small">
+      <h1 style="font-weight: 500;text-align: left;color: var(--card-text-color);padding: 0px 0px 10px 10px;font-size: 24px;">Настройки</h1>
+      <div class="settings_filter">
+        <h3>Фильтр жанров</h3>
+        <div class="settings_filter_box" id="settings_filter_block"></div>
+
+        <p class="settings_filter_p">*Нажмите для отключения</p>
+        <p class="settings_filter_p">#Фильтры не работают на странице случайный релиз</p>
+      </div>
+      <div class="settings_filter">
+        <h3>Настройки главной страницы</h3>
+        <p class="settings_filter_p">Верхний блок</p>
+        <div class="settings_filter_box" id="settings_home_block">
+          <button id="home1" class="settings_filter_button" title="Выбрать" onclick="editHome('Популярное')">Популярное на AniLibria</button>
+          <button id="home2" class="settings_filter_button" title="Выбрать" onclick="editHome('Ожидаемое')">Ожидаем сегодня</button>
+          <button id="home3" class="settings_filter_button" title="Выбрать" onclick="editHome('Выключить')">Отключить</button>
+        </div>
+        <hr style="border: 1px solid var(--card-background-2);"/>
+        <p class="settings_filter_p">Основной блок</p>
+        <div class="settings_filter_box" id="settings_home_block_style">
+          <button id="home1_style" class="settings_filter_button" title="Выбрать" onclick="editHome_style('1')">Большой блок</button>
+          <button id="home2_style" class="settings_filter_button" title="Выбрать" onclick="editHome_style('2')" style="background: var(--card-background-2);color: var(--card-text-color) !important;">Маленькая карточка</button>
+        </div>
+        <p class="settings_filter_p">*Нажмите для выбора</p>
+      </div>
+      <div class="settings_filter">
+        <h3>Настройки страницы плеера</h3>
+        <p class="settings_filter_p">Пропуск опенинга</p>
+        <div class="settings_filter_box" id="settings_home_block_style">
+          <button id="opening1_style" class="settings_filter_button" title="Выбрать" onclick="editOpening_style('1')">Автоматически</button>
+          <button id="opening2_style" class="settings_filter_button" title="Выбрать" onclick="editOpening_style('0')" style="background: var(--card-background-2);color: var(--card-text-color) !important;">Отключить</button>
+        </div>
+        <p class="settings_filter_p">*Нажмите для выбора</p>
+      </div>
+      <div class="settings_filter">
+        <h3>Общие настройки</h3>
+        <p class="settings_filter_p">Очистка кеша</p>
+        <div class="settings_filter_box" id="settings_home_block_style">
+          <button class="settings_filter_button" title="Выбрать" onclick="dellMyCash()">Очистить кеш</button>
+        </div>
+        <p class="settings_filter_p">*Нажмите для выбора</p>
+      </div>
+    </div>
+    <div class="block_header_small">
+      <div class="settings_filter">
+        <h3>Ссылки</h3>
+        <a class="settings_filter_button" href="https://animepot.myprintbar.ru" style="display: inline-block;">Магазин майок разработчика</a>
+        <a class="settings_filter_button" href="https://www.youtube.com/channel/UCDRRTNB6gYH1EfkM6QtDwWA" style="display: inline-block;">Ютуб канал разработчика</a>
+        <a class="settings_filter_button" href="https://www.instagram.com/ivan.yaremchuck20/" style="display: inline-block;">Страница Instagram</a>
+      </div>
+    </div>
+  </center>
+  <br /><br /><br /><br />
+
+  <script type="text/javascript">
+    var cookie = localStorage.getItem('PHPSESSID');
+    if (cookie && cookie != 'undefined') {
+      document.getElementById('login_profile').setAttribute("style", "");
+      document.getElementById('logout_profile').setAttribute("style", "display:none;");
+    } else {
+      document.getElementById('login_profile').setAttribute("style", "display:none;");
+      document.getElementById('logout_profile').setAttribute("style", "");
+    }
+    var cookie_my_login = localStorage.getItem('my_login');
+    var cookie_my_profile_img = localStorage.getItem('my_profile_img');
+
+    if (cookie_my_login) {
+      document.getElementById('my_login').innerHTML = ''+cookie_my_login;
+    }
+    if (!cookie_my_profile_img) {
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+      if (getRandomInt(4) == 1) {
+        document.getElementById('my_profile_img').setAttribute("style", "background-image: url('img/profile/my_profile_img.jpg');background-position: center;background-size: cover;");
+      } else if (getRandomInt(4) == 2) {
+        document.getElementById('my_profile_img').setAttribute("style", "background-image: url('img/profile/my_profile_img_2.jpg');background-position: center;background-size: cover;");
+      } else if (getRandomInt(4) == 3) {
+        document.getElementById('my_profile_img').setAttribute("style", "background-image: url('img/profile/my_profile_img_3.jpg');background-position: center;background-size: cover;");
+      } else {
+        document.getElementById('my_profile_img').setAttribute("style", "background-image: url('img/profile/my_profile_img_1.jpg');background-position: center;background-size: cover;");
+      }
+    }
+
+    function logout() {
+      localStorage.setItem('PHPSESSID', '');
+      localStorage.setItem('my_login', '');
+      document.getElementById('login_profile').setAttribute("style", "display:none;");
+      document.getElementById('logout_profile').setAttribute("style", "");
+    }
+    const form_login = document.querySelector('#form_login');
+    form_login.addEventListener('submit', evt => {
+        evt.preventDefault();
+        fetch('https://www.anilibria.tv/public/login.php', {
+            method: 'POST',
+            body: new FormData(form_login)
+        })
+        .then(function (response) {
+          return Promise.resolve(response)
+        })
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (data) {
+          console.log(data);
+          if (data['key'] == 'success') {
+            localStorage.setItem('PHPSESSID', data['sessionId']);
+            localStorage.setItem('my_login', '');
+            var cookie_my_login = localStorage.getItem('my_login');
+            var cookie_my_profile_img = localStorage.getItem('my_profile_img');
+            document.getElementById('my_login').innerHTML = cookie_my_login;
+            document.getElementById('login_profile').setAttribute("style", "");
+            document.getElementById('logout_profile').setAttribute("style", "display:none;");
+          } else {
+            document.getElementById('error_mes').setAttribute("style", `display:block;`);
+          }
+        })
+        .catch(function (error) {
+          console.log('error', error)
+        })
+    });
+  </script>
+
+  <script type="text/javascript">
+    url = "https://api.anilibria.tv/v2/getGenres";
+    $.get(url, function(data){
+      // let data = ['Боевые искусства', 'Вампиры', 'Демоны', 'Детектив', 'Драма', 'Игры', 'Исторический', 'Комедия', 'Магия', 'Меха', 'Мистика', 'Музыка', 'Повседневность', 'Приключения', 'Психологическое', 'Романтика', 'Сверхъестественное', 'Сёдзе', 'Сейнен', 'Сёнен', 'Спорт', 'Супер сила', 'Триллер', 'Ужасы', 'Фантастика', 'Фэнтези', 'Школа', 'Экшен', 'Этти']
+      var data_arr = data;
+      var cookie_genres = localStorage.getItem('my_genres');
+      if (!cookie_genres) {
+        localStorage.setItem('my_genres', '');
+      }
+      for(let i = 0; data[i]; i++) {
+        var div_filter = document.createElement('div');
+        document.getElementById('settings_filter_block').appendChild(div_filter);
+        div_filter.className = 'settings_filter_div';
+        div_filter.innerHTML = '<button id="filter_'+data[i]+'" class="settings_filter_button" title="Отключить" onclick="editGenres(\''+data[i]+'\')">'+data[i]+'</button>';
+      }
+      var cookie_genres = localStorage.getItem('my_genres');
+      if (cookie_genres) {
+        var List_cookie_genres = cookie_genres.split(/\s*,\s*/);
+        for (let i = 0; List_cookie_genres[i]; i++) {
+          id_Genres = 'filter_'+List_cookie_genres[i];
+          document.getElementById(id_Genres).setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+          document.getElementById(id_Genres).title = "Включить";
+        }
+      }
+    });
+
+    function editGenres(genres) {
+      var cookie_genres = localStorage.getItem('my_genres');
+      var List_cookie_genres = cookie_genres.split(/\s*,\s*/);
+
+      if (cookie_genres) {
+        if (List_cookie_genres.includes(genres)) {
+          document.getElementById('filter_'+genres).setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+          document.getElementById('filter_'+genres).title = "Отключить";
+          var myArray = List_cookie_genres;
+          var myIndex = myArray.indexOf(genres);
+          if (myIndex !== -1) {
+              myArray.splice(myIndex, 1);
+          }
+          localStorage.setItem('my_genres', myArray);
+        } else {
+          var new_cookie_genres = cookie_genres +', '+ genres;
+          localStorage.setItem('my_genres', new_cookie_genres);
+          document.getElementById('filter_'+genres).setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+          document.getElementById('filter_'+genres).title = "Включить";
+        }
+      } else {
+        localStorage.setItem('my_genres', genres);
+        document.getElementById('filter_'+genres).setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('filter_'+genres).title = "Включить";
+      }
+    }
+
+    var cookie_Home = localStorage.getItem('my_home');
+    if (!cookie_Home) {
+      localStorage.setItem('my_home', 'Популярное');
+      document.getElementById('home1').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+      document.getElementById('home2').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+      document.getElementById('home3').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+    } else {
+      if (cookie_Home == "Популярное") {
+        localStorage.setItem('my_home', 'Популярное');
+        document.getElementById('home1').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+        document.getElementById('home2').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('home3').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+      } else if (cookie_Home == "Ожидаемое") {
+        localStorage.setItem('my_home', 'Ожидаемое');
+        document.getElementById('home1').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('home2').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+        document.getElementById('home3').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+      } else if (cookie_Home == "Выключить") {
+        localStorage.setItem('my_home', 'Выключить');
+        document.getElementById('home1').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('home2').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('home3').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+      }
+    }
+
+    function editHome(name) {
+      var cookie_Home = localStorage.getItem('my_home');
+      if (name == "Популярное") {
+        localStorage.setItem('my_home', 'Популярное');
+        document.getElementById('home1').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+        document.getElementById('home2').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('home3').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+      } else if (name == "Ожидаемое") {
+        localStorage.setItem('my_home', 'Ожидаемое');
+        document.getElementById('home1').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('home2').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+        document.getElementById('home3').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+      } else if (name == "Выключить") {
+       localStorage.setItem('my_home', 'Выключить');
+       document.getElementById('home1').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+       document.getElementById('home2').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+       document.getElementById('home3').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+     }
+    }
+
+
+    var my_home_style = localStorage.getItem('my_home_style');
+    if (!my_home_style) {
+      localStorage.setItem('my_home_style', '1');
+      document.getElementById('home1_style').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+      document.getElementById('home2_style').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+    } else {
+      if (my_home_style == "1") {
+        localStorage.setItem('my_home_style', '1');
+        document.getElementById('home1_style').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+        document.getElementById('home2_style').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+      } else if (my_home_style == "2") {
+        localStorage.setItem('my_home_style', '2');
+        document.getElementById('home1_style').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('home2_style').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+      }
+    }
+    function editHome_style(style) {
+      if (style == "1") {
+        localStorage.setItem('my_home_style', '1');
+        document.getElementById('home1_style').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+        document.getElementById('home2_style').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+      } else if (style == "2") {
+        localStorage.setItem('my_home_style', '2');
+        document.getElementById('home1_style').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('home2_style').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+      }
+    }
+
+    var my_skips_opening = localStorage.getItem('my_skips_opening');
+    if (!my_skips_opening) {
+      opening1_style
+      localStorage.setItem('my_skips_opening', '0');
+      document.getElementById('opening2_style').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+      document.getElementById('opening1_style').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+    } else {
+      if (my_skips_opening == "1") {
+        document.getElementById('opening1_style').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+        document.getElementById('opening2_style').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+      } else {
+        document.getElementById('opening1_style').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('opening2_style').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+      }
+    }
+    function editOpening_style(style) {
+      if (style == "1") {
+        localStorage.setItem('my_skips_opening', '1');
+        document.getElementById('opening1_style').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+        document.getElementById('opening2_style').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+      } else if (style == "0") {
+        localStorage.setItem('my_skips_opening', '0');
+        document.getElementById('opening1_style').setAttribute("style", "background: var(--card-background-2);color: var(--card-text-color) !important;");
+        document.getElementById('opening2_style').setAttribute("style", "background: var(--card-background-3);color: var(--card-text-color-2) !important;");
+      }
+    }
+
+    function dellMyCash() {
+      localStorage.setItem('my_api_cash', '');
+    }
+  </script>
+  <script>preloader_none();</script>
+
+  <a href="https://rozenrod.github.io/" style="font-size: 15px;font-weight: 300;text-decoration: none;background: var(--card-background-2);padding: 5px 10px;color: var(--card-text-color);float: right;margin-bottom: 20px;margin-right: 15px;border-radius: var(--border-radius);">Rozenrod 2022</a><br />
+</body>
+</html>
